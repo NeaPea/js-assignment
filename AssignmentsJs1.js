@@ -78,3 +78,7 @@ console.log((var2) + '\t' + (!var1) + '\t' + (var3) + '\t' + (!var1 || var2 || v
 console.log((var2) + '\t' + (var1) + '\t' + (!var3) + '\t' + (var1 || var2 || !var3)); // F T F T
 console.log((var1) + '\t' + (var2) + '\t' + (!var3) + '\t' + (var1 || var2 || !var3)); // T F F T 
 console.log((var1) + '\t' + (var3) + '\t' + (var2) + '\t' + (var1 || var2 || var3)); // T T F T 
+
+
+
+// Nu laver jeg en comment så jeg kan få en git status :)
