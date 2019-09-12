@@ -3,13 +3,13 @@
 // Add VAT
 'use strict';
 function addVat(a) { 
-    return a * 1.25;
+    return a * 1.25;                            // const vat = 25; - const addVat = function(a) { return a * (1 + vat / 100);} 
 }
 let amount = Number(prompt('Write amount of price you want to include VAT:'));
 amount = addVat(amount);
 console.log(amount);
 
-// Sub VAT
+// Sub VAT                                      // const vat = 25; - const subVat = function(a) { return a / (1 + vat / 100);} 
 'use strict';
 function subVat(b) { 
     return b * 0.80; 
@@ -18,7 +18,7 @@ let subAmount = Number(prompt('Write an amount to see what is it without VAT:'))
 subAmount = subVat(subAmount);
 console.log(subAmount);
 
-// Calculate VAT
+// Calculate VAT                                // const vat = 25; - const addVat = function(a) { return a - a / (1 + vat / 100);} 
 'use strict';
 function calcVat(c) { 
     return c * 0.2;
