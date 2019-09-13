@@ -61,7 +61,7 @@ let b = Number(prompt('Enter number 2:'));
 console.log(pow(a,b));
 
 // JS.71
-
+ahahhhaa
 // 1 
 // 2 
 // 3
