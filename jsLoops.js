@@ -57,7 +57,6 @@ console.log(isPrime(pNum));
 
 function pow(r, e) {
     if ( e <= 0 ){
-
     return r;
     }
     return r * pow(r, e - 1);
@@ -96,7 +95,7 @@ there is no more numbers to calculate since on line 83 it says ( if i is more th
 
 
     // JS.72     // x1 = (x0 + a/x0)/2
-
+'use strict';
     const sqRoot = function(k) {
         var prevG = k / 2; //X0  
         var sqR = 0; //X1
@@ -111,4 +110,23 @@ there is no more numbers to calculate since on line 83 it says ( if i is more th
     }
     console.log(sqRoot(9));
 
+
+    // JS.73
+    'use strict';
+    const powR = function(r, e) {
+        let g = 1;
+        while (e > 0) {
+            g *= r;
+            e -= 1;
+        }
+        return res;
+    }
+    let c = Number(prompt('Enter number 1:'));
+    let f = Number(prompt('Enter number 2:'));
+    console.log(powR(c,f));
+
+
+    // JS.74
+
+    
 
