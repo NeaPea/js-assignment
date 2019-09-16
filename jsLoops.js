@@ -128,5 +128,13 @@ there is no more numbers to calculate since on line 83 it says ( if i is more th
 
     // JS.74
 
-    
+    const facto = function(y) {
+        let res = 1;
+        while(y > 0) {
+            res *= y;
+            n -= 1; 
+        }
+        return res;
+    }
 
+// JS.75
