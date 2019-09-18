@@ -3,10 +3,10 @@
 'use strict';
 
 function fact(x) {
-    if (x === 0) { // If x is 0, return 1.
+    if (x === 0) { // If x is 0, return 1. 
         return 1;
     }
-    return x * fact(x - 1);
+    return x * fact(x - 1); // So when the recursion has happened enough times and X reaches 0.
 }
 let input = Number(prompt('Enter a number:'));
 console.log(fact(input));
@@ -48,6 +48,17 @@ function isPrime(p) {
 }
 let pNum = Number(prompt('Enter a number to see if it is a prime:'));
 console.log(isPrime(pNum));
+
+
+// Niels version
+let isPrime2 = function (avg) {
+    let i = 2;
+    while (avg % i === 0) {
+        return false;
+        i++;
+    }
+    return true;
+}
 
 
 
@@ -111,6 +122,61 @@ const sqRoot = function (k) {
 console.log(sqRoot(9));
 
 
+// Another sollution to squareroot
+'use strict';
+
+const mysqrt = function (a) {
+    let prevprev = 0;
+    let prev = 0;
+    let curr = a / 2;
+    let count = 0;
+
+    while (Math.abs(prevprev - prev) >= 0.0001 || Math.abs(prev - curr) >= 0.0001) {
+        prevprev = prev;
+        prev = curr;
+        curr = (prev + a / prev) / 2;
+        //        console.log('c: ' + (++count));
+    }
+    return curr;
+}
+
+console.log('sqrt9 ' + mysqrt(9));
+console.log('off9  ' + Math.sqrt(9));
+console.log();
+console.log('sqrt2 ' + mysqrt(2));
+console.log('off2  ' + Math.sqrt(2));
+console.log();
+console.log('sqrt917347 ' + mysqrt(917347));
+console.log('off 917347 ' + Math.sqrt(917347));
+
+
+// A thrid version of SQRT
+
+'use strict';
+//x1 = (x0 + a/x0)/2
+var squareRoot = function (a) {
+    let x1 = 0;
+    let x2 = 0;
+    let x3 = a / 2;
+
+    while (Math.abs(x1 - x2) >= 0.0001 || Math.abs(x2 - x3) >= 0.0001) {
+        x1 = x2;
+        x2 = x3;
+        x3 = (x2 + a / x2) / 2;
+    }
+    return x3;
+};
+
+//var a = Number(prompt('Write a number and find its square root:'));
+
+console.log(squareRoot(9));
+
+//Math.abs() viser afvigelser, som kun er positive
+
+
+
+
+
 // JS.73
 'use strict';
 const powR = function (r, e) {
@@ -147,22 +213,22 @@ function roll(an) {
     out = Math.floor(out * an); // Before we had out = Math.floor(out * an***** + 1****); to increment the array we made in the earlier version. Now we don't need that since we have an array that we can choose how many outcomes it has. 
     return out;
 }
-// Function to call when rolling, x times and y many outcomes.
+// Function to call when rolling, times2Roll times and nrOutcomes many outcomes.
 const timesPlayed = function (times2Roll, nrOutcomes) {
-    let res;      // We declare res(result)
-    let outComes = []; // We create the array, that can take any number of possible outcomes.
+    let res;                                 // We declare res(result)
+    let outComes = [];              // We create the array, that can take any number of possible outcomes.
 
-    let possibleOutcome = 0; // First possible outcome we want is 0, because it's a start of an array.
+    let possibleOutcome = 0;                            // First possible outcome we want is 0, because it's a start of an array.
     for (possibleOutcome = 0; possibleOutcome < nrOutcomes; possibleOutcome++) {    // Initiate the array with 0 for each outcome. First roll, and then 2nd and so on, for each possible outcome.
-        outComes[possibleOutcome] = 0; // If nrOutcomes has the value of 6, it will add 6 outcomes. and add it to the array.
+        outComes[possibleOutcome] = 0;              // If nrOutcomes has the value of 6, it will add 6 outcomes. and add it to the array.
 
     }
     let timesRolled = 0;
     while (timesRolled < times2Roll) {        // Keep rolling until you've reached your final roll.
-        res = roll(nrOutcomes); // We do a roll, and we pass in the number of possible outcomes(e.g if we have 6 outcomes we roll through [0-5])
-        outComes[res]++; // Add the result into the array
-        timesRolled++; // Increment by 1, cause we have rolled. -> continue until no rolls left (e.g we entered 5 roles, it will loop 5 times.)
-    } 
-    return outComes;  // When everything has looped and been called it will return the result.
+        res = roll(nrOutcomes);             // We do a roll, and we pass in the number of possible outcomes(e.g if we have 6 outcomes we roll through [0-5])
+        outComes[res]++;                     // Add the result into the array
+        timesRolled++;                      // Increment by 1, cause we have rolled. -> continue until no rolls left (e.g we entered 5 roles, it will loop 5 times.)
+    }
+    return outComes;                          // When everything has looped and been called it will return the result.
 }
-timesPlayed(10, 2);
+timesPlayed(10, 2); // How many times do we want to roll? How many outcomes do we want? 2 for coin, 6 for die.
